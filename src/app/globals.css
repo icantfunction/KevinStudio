@@ -1,14 +1,14 @@
 ﻿@import "tailwindcss";
 
 :root {
-  --background: #f8f7f5;
-  --foreground: #141414;
-  --muted: #5f5f5f;
-  --line: #ded9d3;
+  --background: #fdfcfb;
+  --foreground: #1a1a1a;
+  --muted: #858585;
+  --line: #e6e1db;
   --accent: #ff6b4a;
-  --accent-soft: #ffd7cc;
-  --accent-cool: #4cb6ff;
-  --card: #ffffff;
+  --accent-soft: #fff0eb;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.4);
 }
 
 @theme inline {
@@ -20,13 +20,23 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: var(--font-dm-sans), "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
   color: var(--foreground);
-  background: radial-gradient(circle at top, #ffffff 0%, #f4f0ec 40%, #f8f7f5 100%);
+  background: radial-gradient(circle at 50% 0%, #ffffff 0%, #f4f2ef 100%);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 img,
@@ -40,66 +50,125 @@ a {
   text-decoration: none;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-cormorant), serif;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
 .section {
-  padding: clamp(3rem, 6vw, 6rem) clamp(1.5rem, 6vw, 6rem);
+  padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 6vw, 6rem);
 }
 
 .section-title {
-  font-family: var(--font-cormorant), "Times New Roman", serif;
-  font-weight: 500;
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: 0.01em;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
 }
 
 .section-kicker {
   text-transform: uppercase;
-  letter-spacing: 0.3em;
-  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  font-size: 0.75rem;
+  font-weight: 600;
   color: var(--muted);
+  margin-bottom: 1rem;
+  display: block;
 }
 
+/* UI Elements */
 .card {
-  background: var(--card);
+  background: var(--card-bg);
   border: 1px solid var(--line);
-  border-radius: 1.2rem;
-  box-shadow: 0 20px 45px rgba(20, 20, 20, 0.08);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.gradient-border {
-  background: linear-gradient(135deg, rgba(255, 107, 74, 0.15), rgba(76, 182, 255, 0.15));
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+  border-color: rgba(0,0,0,0.1);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--foreground);
+  color: var(--background);
+  border: 1px solid var(--foreground);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--foreground);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--foreground);
+}
+
+.btn-secondary:hover {
+  background: var(--foreground);
+  color: var(--background);
 }
 
 .hero-media {
   position: relative;
   overflow: hidden;
-  border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 30px 70px rgba(22, 22, 22, 0.15);
-}
-
-.hero-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(20, 20, 20, 0.45), rgba(20, 20, 20, 0.05));
+  border-radius: 1.5rem;
 }
 
 .hero-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.hero-media:hover img {
+  transform: scale(1.03);
 }
 
 .sticky-book {
   position: fixed;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  z-index: 40;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 50;
+  transition: transform 0.3s ease;
+}
+
+.sticky-book:hover {
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
   .sticky-book {
     right: 1rem;
     left: 1rem;
+    bottom: 1rem;
   }
 }
