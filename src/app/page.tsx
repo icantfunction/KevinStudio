@@ -126,7 +126,7 @@ export default function Home() {
               href="/gallery"
               className="group flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-neutral-500 hover:text-black"
             >
-              Full Gallery <span className="transition-transform group-hover:translate-x-1">-></span>
+              Full Gallery <span className="transition-transform group-hover:translate-x-1">-&gt;</span>
             </Link>
           </div>
 
@@ -195,7 +195,7 @@ export default function Home() {
                     href={useCase.href}
                     className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-neutral-600 hover:text-black"
                   >
-                    Explore {useCase.cta} <span className="transition-transform group-hover:translate-x-1">-></span>
+                    Explore {useCase.cta} <span className="transition-transform group-hover:translate-x-1">-&gt;</span>
                   </Link>
                 </div>
               </div>
@@ -265,7 +265,7 @@ export default function Home() {
                   href="/rates"
                   className="mt-6 inline-block text-[0.65rem] font-bold uppercase tracking-[0.3em] text-neutral-400 hover:text-black transition"
                 >
-                  See full rate card ->
+                  See full rate card -&gt;
                 </Link>
               </div>
             </div>
