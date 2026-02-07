@@ -56,7 +56,7 @@ export default function SiteFooter() {
             </li>
             <li>
               <a href={siteConfig.instagramUrl} className="hover:text-black transition inline-flex items-center gap-2">
-                Instagram ->
+                Instagram -&gt;
               </a>
             </li>
             <li>
