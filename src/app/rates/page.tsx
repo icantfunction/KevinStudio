@@ -38,7 +38,7 @@ export default function RatesPage() {
             </p>
             <ul className="mt-4 space-y-2 text-sm text-neutral-600">
               {rateNotes.map((note) => (
-                <li key={note}>• {note}</li>
+                <li key={note}>- {note}</li>
               ))}
             </ul>
           </div>

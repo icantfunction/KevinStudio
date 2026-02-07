@@ -1,22 +1,22 @@
 ﻿import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Bodoni_Moda, Manrope } from "next/font/google";
 import "./globals.css";
 import { siteConfig, seoKeywords } from "@/data/site";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import StickyBookButton from "@/components/StickyBookButton";
 
-const cormorant = Cormorant_Garamond({
+const bodoni = Bodoni_Moda({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-cormorant",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-bodoni",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-dm-sans",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -48,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${cormorant.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${bodoni.variable}`}>
       <body className="antialiased">
         <SiteHeader />
         {children}
